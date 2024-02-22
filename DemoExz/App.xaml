@@ -1,0 +1,112 @@
+﻿<Application x:Class="DemoExz.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DemoExz"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="#FDBD40"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            </Style>
+            <Style TargetType="{x:Type Label}"
+                   x:Key="LabelForBox"
+                   >
+                <Setter Property="Foreground" Value="Gray"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            </Style>
+            <Style TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
+                   x:Key="AuthTextBox">
+            </Style>
+            <Style TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource MaterialDesignTextBox}"
+                   x:Key="ValueTextBox">
+                <Setter Property="Padding" Value="5 0 0 0"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                
+            </Style>
+            <Style TargetType="{x:Type ComboBox}"
+                   BasedOn="{StaticResource MaterialDesignComboBox}"
+                   x:Key="ValueComboBox">
+                <Setter Property="Padding" Value="5 0 0 0"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+            <Style TargetType="{x:Type PasswordBox}"
+                   BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                   x:Key="AuthPasswordBox">
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#B0E5FD"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+            </Style>
+            <Style TargetType="{x:Type Button}"
+                   x:Key="ButtonBack">
+                <EventSetter Event="Click" Handler="Back"/>
+                <Setter Property="Foreground" Value="#FDBD40"/>
+                <Setter Property="Content" Value="Назад"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <!--<Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="FontSize" Value="16"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="False">
+                        <Setter Property="FontSize" Value="14"/>
+                    </Trigger>
+                </Style.Triggers>-->
+            </Style>
+            <Style TargetType="DataGrid">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CanUserReorderColumns" Value="False"/>
+                <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Style.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#B0E5FD"/>
+                        <Setter Property="FontFamily" Value="Tw Cen MT"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+            <Style TargetType="{x:Type DataGrid}"
+                   x:Key="GridStatics">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="CanUserReorderColumns" Value="False"/>
+                <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Style.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#FDBD40"/>
+                        <Setter Property="FontFamily" Value="Tw Cen MT"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
