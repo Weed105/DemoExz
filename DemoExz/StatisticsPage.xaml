@@ -41,8 +41,6 @@
                 BorderThickness="1 0 0 0"
                 >
                 <StackPanel  >
-
-
                     <DataGrid Style="{StaticResource GridStatics}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Неисправность" Width="*"/>
