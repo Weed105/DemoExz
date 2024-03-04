@@ -7,7 +7,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Background="White"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="510" d:DesignWidth="800"
       Title="WorkPage">
 
     <Grid>
@@ -21,20 +21,24 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="1">
+            
             <Label Style="{StaticResource LabelForBox}">Затраченное время</Label>
             <TextBox
                 Style="{StaticResource ValueTextBox}"
                 Height="20"
                 BorderBrush="Gray"
-                Margin="0 0 0 10"
+                Margin="0 0 0 5"
                 Width="200"></TextBox>
             <Label Style="{StaticResource LabelForBox}">Статус заявки</Label>
-            <TextBox
-                Style="{StaticResource ValueTextBox}"
-                Height="20"
-                BorderBrush="Gray"
-                Margin="0 0 0 10"
-                Width="200"></TextBox>
+            <ComboBox
+             Style="{StaticResource ValueComboBox}"
+             BorderBrush="Gray"
+             Height="20"
+             Width="200"
+             >
+            </ComboBox>
+            <Label Style="{StaticResource LabelForBox}">Дата выполнения</Label>
+            <TextBlock>15 мая 2024</TextBlock>
             <Label Style="{StaticResource LabelForBox}">Комментарий</Label>
             <RichTextBox
                 BorderBrush="Gray"
@@ -48,6 +52,13 @@
                 BorderThickness="1"
                 Height="80"
                 Width="200"></RichTextBox>
+            <Label Style="{StaticResource LabelForBox}">Цена</Label>
+            <TextBox
+                 Style="{StaticResource ValueTextBox}"
+                 Height="20"
+                 BorderBrush="Gray"
+                 Margin="0 0 0 5"
+                 Width="200"></TextBox> 
             <Button
                 Margin="10"
                 Width="150">Изменить</Button>

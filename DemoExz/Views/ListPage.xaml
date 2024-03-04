@@ -32,14 +32,19 @@
             Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Width="*"/>
+                <DataGridTextColumn Header="Дата добавления" Width="*"/>
+                <DataGridTextColumn Header="Описание проблемы" Width="*"/>
                 <DataGridTextColumn Header="Номер оборудования" Width="*"/>
                 <DataGridTextColumn Header="Оборудование" Width="*"/>
                 <DataGridTextColumn Header="Тип оборудования" Width="*"/>
                 <DataGridTextColumn Header="Тип неисправности" Width="*"/>
-                <DataGridTextColumn Header="Дата добавления" Width="*"/>
                 <DataGridTextColumn Header="ФИО клиента" Width="*"/>
                 <DataGridTextColumn Header="Статус заявки" Width="*"/>
                 <DataGridTextColumn Header="Исполнитель" Width="*"/>
+                <DataGridTextColumn Header="Комментарий" Width="*"/>
+                <DataGridTextColumn Header="Затраченное время" Width="*"/>
+                <DataGridTextColumn Header="Дата выполнения" Width="*"/>
+                <DataGridTextColumn Header="Цена" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel

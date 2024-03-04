@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoExz"
         mc:Ignorable="d"
-        Title="TechnoService" MinHeight="450" MinWidth="800">
+        Title="TechnoService" MinHeight="520" MinWidth="800">
     <Grid>
         <Frame x:Name="pagesFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

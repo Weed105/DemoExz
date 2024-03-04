@@ -7,7 +7,7 @@
       Background="White"
       xmlns:local="clr-namespace:DemoExz"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="510" d:DesignWidth="800"
       Title="AddPage">
 
     <Grid >
@@ -30,6 +30,8 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Grid.Row="1">
+            <Label Style="{StaticResource LabelForBox}">Дата добавления</Label>
+            <TextBlock >15 февраля 2024</TextBlock>
             <Label Style="{StaticResource LabelForBox}">ФИО клиента</Label>
             <TextBox
                 Style="{StaticResource ValueTextBox}"
@@ -37,29 +39,37 @@
                 BorderBrush="Gray"
                 Width="200"></TextBox>
             <Label Style="{StaticResource LabelForBox}">Тип оборудования</Label>
-            <TextBox
-                Style="{StaticResource ValueTextBox}"
-                Height="20"
+            <ComboBox
+                Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
-                Width="200"></TextBox>
+                Height="20"
+                Width="200"
+                >
+            </ComboBox>
             <Label Style="{StaticResource LabelForBox}">Название оборудования</Label>
             <TextBox
                 Style="{StaticResource ValueTextBox}"
                 Height="20"
                 BorderBrush="Gray"
                 Width="200"></TextBox>
+            <Label Style="{StaticResource LabelForBox}">Номер оборудования</Label>
+            <TextBlock>928391-129389</TextBlock>
             <Label Style="{StaticResource LabelForBox}">Тип неисправности</Label>
-            <TextBox
-                Style="{StaticResource ValueTextBox}"
-                Height="20"
+            <ComboBox
+                Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
-                Width="200"></TextBox>
+                Height="20"
+                Width="200"
+                >
+            </ComboBox>
             <Label Style="{StaticResource LabelForBox}">Исполнитель</Label>
-            <TextBox
-                Style="{StaticResource ValueTextBox}"
-                Height="20"
+            <ComboBox
+                Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
-                Width="200"></TextBox>
+                Height="20"
+                Width="200"
+                >
+            </ComboBox>
             <Label Style="{StaticResource LabelForBox}">Описание проблемы</Label>
             <RichTextBox
                 BorderBrush="Gray"
