@@ -20,9 +20,21 @@ namespace DemoExz
     /// </summary>
     public partial class ListPage : Page
     {
+        private readonly GetData _getData ;
+
+        public List<Application> apps {  get; set; }
+
         public ListPage()
         {
             InitializeComponent();
+            ViewData();
+            Applications.DataContext = apps;
+        }
+
+        public async void ViewData()
+        {
+            var context = await _getData.GetApplications();
+            apps = context;
         }
 
         private void GoingToAddPage(object sender, RoutedEventArgs e)

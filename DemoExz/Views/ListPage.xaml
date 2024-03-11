@@ -28,7 +28,7 @@
             <Button Margin="5" Padding="5">Поиск</Button>
         </StackPanel>
         <DataGrid
-            
+            x:Name="Applications"
             Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Width="*"/>

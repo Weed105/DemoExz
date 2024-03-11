@@ -27,7 +27,7 @@ namespace DemoExz
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListPage());
+            NavigationService.Navigate(new Uri("Views/ListPage.xaml", UriKind.Relative));
         }
     }
 }

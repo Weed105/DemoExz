@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoExz;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,7 +14,7 @@ namespace DemoExz
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private void Back(object sender, RoutedEventArgs e)
         {
@@ -21,3 +22,5 @@ namespace DemoExz
         }
     }
 }
+
+
