@@ -28,23 +28,28 @@
             <Button Margin="5" Padding="5">Поиск</Button>
         </StackPanel>
         <DataGrid
+            EnableRowVirtualization="false" EnableColumnVirtualization="false" 
+            CanUserAddRows="False" CanUserReorderColumns="False"
+            RowHeaderWidth="0"
+            SelectionMode="Single"
+            AutoGenerateColumns="False"
             x:Name="Applications"
             Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"  Width="*"/>
-                <DataGridTextColumn Header="Дата добавления" Width="*"/>
-                <DataGridTextColumn Header="Описание проблемы" Width="*"/>
-                <DataGridTextColumn Header="Номер оборудования" Width="*"/>
-                <DataGridTextColumn Header="Оборудование" Width="*"/>
-                <DataGridTextColumn Header="Тип оборудования" Width="*"/>
-                <DataGridTextColumn Header="Тип неисправности" Width="*"/>
-                <DataGridTextColumn Header="ФИО клиента" Width="*"/>
-                <DataGridTextColumn Header="Статус заявки" Width="*"/>
-                <DataGridTextColumn Header="Исполнитель" Width="*"/>
-                <DataGridTextColumn Header="Комментарий" Width="*"/>
-                <DataGridTextColumn Header="Затраченное время" Width="*"/>
-                <DataGridTextColumn Header="Дата выполнения" Width="*"/>
-                <DataGridTextColumn Header="Цена" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Idapplication}" Header="ID"  Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=DateAddition}" Header="Дата добавления" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=DescriptionProblem}" Header="Описание проблемы" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=EquipmentNumber}" Header="Номер оборудования" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=EquipmentName}" Header="Оборудование" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=EquipmentNavigation.Title}" Header="Тип оборудования" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=TypeFaultNavigation.Title}" Header="Тип неисправности" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=Client}" Header="ФИО клиента" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=Status}" Header="Статус заявки" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=ExecutorNavigation.Name}" Header="Исполнитель" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=Comment}" Header="Комментарий" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=ExecutionTime}" Header="Затраченное время" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=DateCompletion}" Header="Дата выполнения" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Цена" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel

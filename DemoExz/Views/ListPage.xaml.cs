@@ -20,21 +20,25 @@ namespace DemoExz
     /// </summary>
     public partial class ListPage : Page
     {
-        private readonly GetData _getData ;
 
-        public List<Application> apps {  get; set; }
+        public readonly DbTechnoserviceContext _technoserviceContext = new DbTechnoserviceContext();
+
 
         public ListPage()
         {
             InitializeComponent();
-            ViewData();
-            Applications.DataContext = apps;
+            GetApplications();
         }
 
-        public async void ViewData()
+        public async void GetApplications()
         {
-            var context = await _getData.GetApplications();
-            apps = context;
+            var applicationsDb = _technoserviceContext.Applications.ToList();
+            _technoserviceContext.Equipment.ToList();
+            _technoserviceContext.TypeFaults.ToList();
+            _technoserviceContext.Users.ToList();
+
+            Applications.ItemsSource = applicationsDb;
+            //MessageBox.Show(applicationsDb[0].EquipmentNavigation.Title);
         }
 
         private void GoingToAddPage(object sender, RoutedEventArgs e)

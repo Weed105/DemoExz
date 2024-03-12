@@ -88,13 +88,18 @@
                 <Setter Property="Background" Value="White"/>
                 <Setter Property="CanUserReorderColumns" Value="False"/>
                 <Setter Property="CanUserResizeColumns" Value="False"/>
+                <Setter Property="CanUserResizeRows" Value="False"/>
                 <Style.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}" >
+                        <Setter Property="Padding" Value="0 5 0 5"/>
+                    </Style>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#B0E5FD"/>
                         <Setter Property="Padding" Value="0 5 0 5"/>
                         <Setter Property="FontFamily" Value="Tw Cen MT"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     </Style>
+                    
                 </Style.Resources>
             </Style>
             <Style TargetType="{x:Type DataGrid}"
