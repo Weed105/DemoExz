@@ -30,10 +30,8 @@
         <DataGrid
             EnableRowVirtualization="false" EnableColumnVirtualization="false" 
             CanUserAddRows="False" CanUserReorderColumns="False"
-            RowHeaderWidth="0"
-            SelectionMode="Single"
-            AutoGenerateColumns="False"
-            x:Name="Applications"
+            RowHeaderWidth="0" SelectionMode="Single"
+            AutoGenerateColumns="False" x:Name="Applications"
             Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Idapplication}" Header="ID"  Width="*" IsReadOnly="True"/>

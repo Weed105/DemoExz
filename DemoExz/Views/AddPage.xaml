@@ -31,7 +31,7 @@
             HorizontalAlignment="Center"
             Grid.Row="1">
             <Label Style="{StaticResource LabelForBox}">Дата добавления</Label>
-            <TextBlock >15 февраля 2024</TextBlock>
+            <TextBlock Text="{Binding Today, StringFormat='dd.MM.yyy'}"></TextBlock>
             <Label Style="{StaticResource LabelForBox}">ФИО клиента</Label>
             <TextBox
                 Style="{StaticResource ValueTextBox}"
@@ -40,6 +40,7 @@
                 Width="200"></TextBox>
             <Label Style="{StaticResource LabelForBox}">Тип оборудования</Label>
             <ComboBox
+                ItemsSource="{Binding Types_Equipment}"
                 Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
                 Height="20"
@@ -56,6 +57,7 @@
             <TextBlock>928391-129389</TextBlock>
             <Label Style="{StaticResource LabelForBox}">Тип неисправности</Label>
             <ComboBox
+                ItemsSource="{Binding Types_Faults}"
                 Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
                 Height="20"
@@ -64,6 +66,7 @@
             </ComboBox>
             <Label Style="{StaticResource LabelForBox}">Исполнитель</Label>
             <ComboBox
+                ItemsSource="{Binding Executors}"
                 Style="{StaticResource ValueComboBox}"
                 BorderBrush="Gray"
                 Height="20"

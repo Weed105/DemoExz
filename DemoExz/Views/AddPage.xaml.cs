@@ -20,9 +20,37 @@ namespace DemoExz
     /// </summary>
     public partial class AddPage : Page
     {
+        public List<string> Types_Equipment { get; set; } = new();
+        public List<string> Types_Faults { get; set; } = new();
+        public List<string> Executors { get; set; } = new();
+
+        public DateTime Today { get; } = DateTime.Now;
+        public DbTechnoserviceContext dbTechnoservice = new DbTechnoserviceContext();
+
         public AddPage()
         {
             InitializeComponent();
+            DataContext = this;
+
+            var types_equipment = dbTechnoservice.Equipment.ToList();
+            var types_faults = dbTechnoservice.TypeFaults.ToList();
+            var executors = dbTechnoservice.Users.ToList();
+             
+            if (Types_Equipment.Count == 0)
+            {
+                foreach (var type in types_equipment)
+                
+                    Types_Equipment.Add(type.Title);
+                
+                foreach (var type in types_faults)
+                
+                    Types_Faults.Add(type.Title);
+
+                foreach (var user in executors)
+                    if (user.Role == "Исполнитель")
+                        Executors.Add($"{user.Name} {user.Surname}");
+                
+            }
         }
     }
 }

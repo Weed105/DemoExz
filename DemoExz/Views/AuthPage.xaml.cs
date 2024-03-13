@@ -20,6 +20,8 @@ namespace DemoExz
     /// </summary>
     public partial class AuthPage : Page
     {
+        public readonly DbTechnoserviceContext _technoserviceContext = new DbTechnoserviceContext();
+
         public AuthPage()
         {
             InitializeComponent();
@@ -27,7 +29,21 @@ namespace DemoExz
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("Views/ListPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new ListPage());
+
+            //var user = _technoserviceContext.Users.SingleOrDefault(u => u.Login == login.Text);
+            //if (user == null)
+            //    MessageBox.Show("Неверный логин или пароль");
+            //else
+            //{
+            //    if (user.Password.Equals(password.Password))
+            //    {
+            //        NavigationService.Navigate(new ListPage());
+            //        Global.CurrentUser = user;
+            //    }
+            //    else
+            //        MessageBox.Show("Неверный логин или пароль");
+            //}
         }
     }
 }

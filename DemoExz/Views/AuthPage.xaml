@@ -22,15 +22,16 @@
                 Margin="0 0 0 30"
                 >Авторизация</Label>
                 <TextBox
-                materialDesign:HintAssist.Hint="Логин" 
-                Margin="5"
-                Style="{StaticResource AuthTextBox}">
-
+                    materialDesign:HintAssist.Hint="Логин" 
+                    Margin="5"
+                    x:Name="login"
+                    Style="{StaticResource AuthTextBox}">
                 </TextBox>
                 <PasswordBox
-                materialDesign:HintAssist.Hint="Пароль"
-                Margin="5 5 5 25"
-                Style="{StaticResource AuthPasswordBox}">
+                    materialDesign:HintAssist.Hint="Пароль"
+                    Margin="5 5 5 25"
+                    x:Name="password"
+                    Style="{StaticResource AuthPasswordBox}">
 
                 </PasswordBox>
                 <Button Margin="5" Click="Button_Click">Войти

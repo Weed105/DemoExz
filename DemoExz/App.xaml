@@ -24,13 +24,15 @@
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontFamily" Value="Tw Cen MT"/>
             </Style>
+            
             <Style TargetType="{x:Type TextBox}"
                    BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}"
                    x:Key="AuthTextBox">
+                
             </Style>
             <Style TargetType="{x:Type TextBox}"
                    BasedOn="{StaticResource MaterialDesignTextBox}"
-                   x:Key="ValueTextBox">
+                   x:Key="ValueTextBox"> 
                 <Setter Property="Padding" Value="5 0 0 0"/>
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
