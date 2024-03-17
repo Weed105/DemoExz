@@ -18,5 +18,7 @@ namespace DemoExz
             Password = string.Empty,
             Role = string.Empty,
         };
+
+        public static Application SelectedApplication { get; set; }
     }
 }

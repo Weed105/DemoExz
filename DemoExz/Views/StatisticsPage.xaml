@@ -27,12 +27,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label FontWeight="Bold" FontSize="48" HorizontalAlignment="Center">0</Label>
+                <Label x:Name="count" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center">0</Label>
                 <TextBlock FontSize="16">Количество выполненных заявок</TextBlock>
             </StackPanel>
             <Separator VerticalAlignment="Bottom"  />
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label FontWeight="Bold" FontSize="48" HorizontalAlignment="Center">0 ч</Label>
+                <Label x:Name="avg" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center">0 ч</Label>
                 <TextBlock FontSize="16">Среднее время выполнения заявки</TextBlock>
             </StackPanel>
             <Border
@@ -41,10 +41,10 @@
                 BorderThickness="1 0 0 0"
                 >
                 <StackPanel  >
-                    <DataGrid Style="{StaticResource GridStatics}">
+                    <DataGrid AutoGenerateColumns="False" x:Name="Faults" Style="{StaticResource GridStatics}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Неисправность" Width="*"/>
-                            <DataGridTextColumn Header="Количество" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Type}"  Header="Неисправность" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Path=Count}"  Header="Количество" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

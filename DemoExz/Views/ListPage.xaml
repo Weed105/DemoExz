@@ -20,14 +20,17 @@
         <StackPanel 
             HorizontalAlignment="Right"
             Orientation="Horizontal">
-            <ComboBox Margin="5" Style="{StaticResource ValueComboBox}" 
+            <ComboBox
+                ItemsSource="{Binding Params}"
+                Margin="5" Style="{StaticResource ValueComboBox}" 
                       materialDesign:HintAssist.Hint="Параметр поиска"></ComboBox>
-            <TextBox Margin="5" Style="{StaticResource ValueTextBox}" Width="200" materialDesign:HintAssist.Hint="Поиск" >
+            <TextBox x:Name="Search" Margin="5" Style="{StaticResource ValueTextBox}" Width="200" materialDesign:HintAssist.Hint="Поиск" >
                 
             </TextBox>
-            <Button Margin="5" Padding="5">Поиск</Button>
+            <Button Click="SerchClick" Margin="5" Padding="5">Поиск</Button>
         </StackPanel>
         <DataGrid
+            SelectedItem="{Binding SelectedApplication}"
             EnableRowVirtualization="false" EnableColumnVirtualization="false" 
             CanUserAddRows="False" CanUserReorderColumns="False"
             RowHeaderWidth="0" SelectionMode="Single"
@@ -35,7 +38,7 @@
             Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Idapplication}" Header="ID"  Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Path=DateAddition}" Header="Дата добавления" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=DateAddition, StringFormat=dd.MM.yyyy}" Header="Дата добавления" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=DescriptionProblem}" Header="Описание проблемы" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=EquipmentNumber}" Header="Номер оборудования" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=EquipmentName}" Header="Оборудование" Width="*" IsReadOnly="True"/>
@@ -46,7 +49,7 @@
                 <DataGridTextColumn Binding="{Binding Path=ExecutorNavigation.Name}" Header="Исполнитель" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=Comment}" Header="Комментарий" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=ExecutionTime}" Header="Затраченное время" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Path=DateCompletion}" Header="Дата выполнения" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Path=DateCompletion, StringFormat=dd.MM.yyyy}" Header="Дата выполнения" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Цена" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -54,7 +57,7 @@
             HorizontalAlignment="Center"
             Orientation="Horizontal"
             Grid.Row="2">
-            <Button Margin="10" Click="GoingToAddPage" >Добавить заявку</Button>
+            <Button x:Name="AddButton" Margin="10" Click="GoingToAddPage" >Добавить заявку</Button>
             <Button Margin="10" Click="GoingToChangePage" >Редактировать заявку</Button>
             <Button Margin="10" Click="GoingToStatisticsPage">Статистика</Button>
         </StackPanel>

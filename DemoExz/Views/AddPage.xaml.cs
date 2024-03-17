@@ -52,5 +52,34 @@ namespace DemoExz
                 
             }
         }
+
+        private void AddApplication(object sender, RoutedEventArgs e)
+        {
+            string description = new TextRange(Description.Document.ContentStart, Description.Document.ContentEnd).Text;
+            if (!Client.Text.Equals("") && !TypeEquipment.Text.Equals("") && !NameEquipment.Text.Equals("") && !TypeFault.Text.Equals("") && !Executor.Text.Equals("") && !description.Equals(""))
+            {
+                Application application = new Application
+                {
+                    Idapplication = dbTechnoservice.Applications.Max(i => i.Idapplication) + 1,
+                    DateAddition = new DateOnly(Today.Year, Today.Month, Today.Day),
+                    Equipment = dbTechnoservice.Equipment.Where(i => i.Title.Equals(TypeEquipment.Text)).SingleOrDefault().Idequipment,
+                    EquipmentName = NameEquipment.Text,
+                    TypeFault = dbTechnoservice.TypeFaults.Where(i => i.Title.Equals(TypeFault.Text)).SingleOrDefault().IdtypeFault,
+                    DescriptionProblem = description,
+                    Client = Client.Text,
+                    Status = "В ожидании",
+                    Executor = dbTechnoservice.Users.Where(i => i.Name.Equals(Executor.Text.Split()[0]) && i.Surname.Equals(Executor.Text.Split()[1])).SingleOrDefault().Iduser,
+                };
+                dbTechnoservice.Applications.Add(application);
+                dbTechnoservice.SaveChanges();
+                MessageBox.Show("Заявка добавлена", "Внимание");
+                NavigationService.Navigate(new ListPage());
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля", "Внимание");
+            }
+        }
+
     }
 }

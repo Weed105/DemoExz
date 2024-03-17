@@ -23,14 +23,19 @@
             Grid.Row="1">
             
             <Label Style="{StaticResource LabelForBox}">Затраченное время</Label>
-            <TextBox
-                Style="{StaticResource ValueTextBox}"
-                Height="20"
+            <materialDesign:TimePicker
+                x:Name="timeWork"
                 BorderBrush="Gray"
+                Is24Hours="True"
+                Padding="5 0 0 0"
+                BorderThickness="1"
+                Height="20"
                 Margin="0 0 0 5"
-                Width="200"></TextBox>
+                Width="200"></materialDesign:TimePicker>
             <Label Style="{StaticResource LabelForBox}">Статус заявки</Label>
             <ComboBox
+                x:Name="Status"
+                ItemsSource="{Binding Statuses}"
              Style="{StaticResource ValueComboBox}"
              BorderBrush="Gray"
              Height="20"
@@ -38,9 +43,10 @@
              >
             </ComboBox>
             <Label Style="{StaticResource LabelForBox}">Дата выполнения</Label>
-            <TextBlock>15 мая 2024</TextBlock>
+            <TextBlock Text="{Binding Today, StringFormat='dd.MM.yyy'}"></TextBlock>
             <Label Style="{StaticResource LabelForBox}">Комментарий</Label>
             <RichTextBox
+                x:Name="comment"
                 BorderBrush="Gray"
                 Margin="0 0 0 10"
                 BorderThickness="1"
@@ -48,18 +54,21 @@
                 Width="200"></RichTextBox>
             <Label Style="{StaticResource LabelForBox}">Описание проблемы</Label>
             <RichTextBox
+                x:Name="Description"
                 BorderBrush="Gray"
                 BorderThickness="1"
                 Height="80"
                 Width="200"></RichTextBox>
             <Label Style="{StaticResource LabelForBox}">Цена</Label>
             <TextBox
+                x:Name="Cost"
                  Style="{StaticResource ValueTextBox}"
                  Height="20"
                  BorderBrush="Gray"
                  Margin="0 0 0 5"
                  Width="200"></TextBox> 
             <Button
+                Click="ChangeApplication"
                 Margin="10"
                 Width="150">Изменить</Button>
         </StackPanel>

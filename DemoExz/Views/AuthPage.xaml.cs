@@ -25,25 +25,27 @@ namespace DemoExz
         public AuthPage()
         {
             InitializeComponent();
+            Global.CurrentUser = new User();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListPage());
+            //NavigationService.Navigate(new ListPage());
 
-            //var user = _technoserviceContext.Users.SingleOrDefault(u => u.Login == login.Text);
-            //if (user == null)
-            //    MessageBox.Show("Неверный логин или пароль");
-            //else
-            //{
-            //    if (user.Password.Equals(password.Password))
-            //    {
-            //        NavigationService.Navigate(new ListPage());
-            //        Global.CurrentUser = user;
-            //    }
-            //    else
-            //        MessageBox.Show("Неверный логин или пароль");
-            //}
+            var user = _technoserviceContext.Users.SingleOrDefault(u => u.Login == login.Text);
+            if (user == null)
+                MessageBox.Show("Неверный логин или пароль");
+            else
+            {
+                if (user.Password.Equals(password.Password))
+                {
+                    Global.CurrentUser = user;
+
+                    NavigationService.Navigate(new ListPage());
+                }
+                else
+                    MessageBox.Show("Неверный логин или пароль");
+            }
         }
     }
 }

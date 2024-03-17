@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignColors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,21 @@ namespace DemoExz
     /// </summary>
     public partial class ListPage : Page
     {
-
+        public List<string> Params { get; set; } =new ();
         public readonly DbTechnoserviceContext _technoserviceContext = new DbTechnoserviceContext();
-
 
         public ListPage()
         {
             InitializeComponent();
             GetApplications();
+            DataContext = this;
+
+            //var bindingPaths = Applications.Columns.Select(column => ((Binding)(column as DataGridBoundColumn).Binding).Path.Path);
+
+            for (int i = 0; i < Applications.Columns.Count; i++)
+            {
+                Params.Add(Applications.Columns[i].Header.ToString());
+            }
         }
 
         public async void GetApplications()
@@ -37,8 +45,16 @@ namespace DemoExz
             _technoserviceContext.TypeFaults.ToList();
             _technoserviceContext.Users.ToList();
 
-            Applications.ItemsSource = applicationsDb;
-            //MessageBox.Show(applicationsDb[0].EquipmentNavigation.Title);
+            if (Global.CurrentUser.Role == "Исполнитель")
+            {
+                AddButton.Visibility = Visibility.Collapsed;
+                Applications.ItemsSource = applicationsDb.Where(a=> a.Executor == Global.CurrentUser.Iduser).ToList();
+            }
+            else
+            {
+                AddButton.Visibility = Visibility.Visible;
+                Applications.ItemsSource = applicationsDb;
+            }
         }
 
         private void GoingToAddPage(object sender, RoutedEventArgs e)
@@ -48,11 +64,41 @@ namespace DemoExz
 
         private void GoingToChangePage(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ChangePage());
+            if (Applications.SelectedItem != null)
+            {
+                Global.SelectedApplication = (Application)Applications.SelectedItem;
+
+                if (Global.CurrentUser.Role == "Исполнитель")
+                    NavigationService.Navigate(new WorkPage());
+                else
+                    NavigationService.Navigate(new ChangePage());
+            }
+            else
+                MessageBox.Show("Выберите заявку для изменения", "Внимание");
         }
         private void GoingToStatisticsPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new StatisticsPage());
+        }
+
+        private void SerchClick(object sender, RoutedEventArgs e)
+        {
+            var applicationsDb = _technoserviceContext.Applications.ToList();
+            if (Global.CurrentUser.Role == "Исполнитель")
+                applicationsDb = applicationsDb.Where(a => a.Executor == Global.CurrentUser.Iduser).ToList();
+            else
+                applicationsDb = _technoserviceContext.Applications.ToList();
+
+
+            if (!Search.Text.Equals(""))
+            {
+                Applications.ItemsSource = applicationsDb.Where(p => p.EquipmentNumber.Contains(Search.Text.ToLower().Trim())).ToList();
+            }
+            else
+            {
+                Applications.ItemsSource = applicationsDb;
+
+            }
         }
     }
 }
